@@ -109,6 +109,12 @@ Uninstalling removes the settings. The language and group stored on each post ar
 wp db query "DELETE FROM $(wp db prefix)postmeta WHERE meta_key IN ('_just_lang','_just_lang_group')"
 ```
 
+## Sister projects
+
+* [Omni Webmaster & SEO Suite](https://github.com/ivanusto/omni-webmaster-seo-suite) ([WordPress.org](https://wordpress.org/plugins/omni-webmaster-seo-suite/)): SEO and site optimization in one settings panel, including meta description, Open Graph and structured data. Just Lang hooks into it through `omni_og_locale`, so its `og:locale` follows each page's language.
+* [Just Share](https://github.com/ivanusto/just-share): share buttons and related posts that ad blockers leave alone, built from plain server-rendered links and inline SVG with no third-party requests.
+* [Omni Performance Hardening](https://github.com/ivanusto/omni-wp-perf-hardening): reduces server load from search scans, archive queries, low-value feeds and oEmbed endpoints, and tunes CDN cache headers.
+
 ## License
 
 GPL-2.0-or-later. See [LICENSE](LICENSE).

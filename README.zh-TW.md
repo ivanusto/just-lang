@@ -109,6 +109,12 @@ wp post meta update 42 _just_lang_group about
 wp db query "DELETE FROM $(wp db prefix)postmeta WHERE meta_key IN ('_just_lang','_just_lang_group')"
 ```
 
+## 姊妹作品
+
+* [Omni Webmaster & SEO Suite](https://github.com/ivanusto/omni-webmaster-seo-suite)（[WordPress.org](https://wordpress.org/plugins/omni-webmaster-seo-suite/)）：在同一個設定頁完成 SEO 與網站優化，包括 meta description、Open Graph 與結構化資料。Just Lang 透過 `omni_og_locale` 與它整合，讓它輸出的 `og:locale` 跟著各頁的語言變化。
+* [Just Share](https://github.com/ivanusto/just-share)：不會被擋廣告套件藏起來的分享按鈕與延伸閱讀，以伺服器輸出的純連結與內嵌 SVG 組成，不向第三方發出請求。
+* [Omni Performance Hardening](https://github.com/ivanusto/omni-wp-perf-hardening)：收斂站內搜尋全表掃描、彙整查詢、低價值 Feed 與 oEmbed 端點造成的伺服器負載，並優化 CDN 快取標頭。
+
 ## 授權
 
 GPL-2.0-or-later，見 [LICENSE](LICENSE)。
