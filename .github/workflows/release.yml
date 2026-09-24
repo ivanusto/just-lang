@@ -1,0 +1,61 @@
+name: Auto Release & Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Release tag version (e.g. v1.0.0)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build & Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Determine Version
+        id: get_version
+        run: |
+          if [ -n "${{ github.event.inputs.version }}" ]; then
+            TAG_VER="${{ github.event.inputs.version }}"
+          else
+            TAG_VER="${GITHUB_REF#refs/tags/}"
+          fi
+          echo "TAG_VER=${TAG_VER}" >> $GITHUB_ENV
+
+      - name: Package Repository Artifact
+        run: |
+          REPO_NAME="${{ github.event.repository.name }}"
+          ZIP_NAME="${REPO_NAME}-${TAG_VER}.zip"
+          STAGE_ROOT="$(mktemp -d)"
+          mkdir -p "${STAGE_ROOT}/${REPO_NAME}"
+          rsync -a ./ "${STAGE_ROOT}/${REPO_NAME}/" --exclude-from=.distignore
+          # Fail the release rather than ship a package Plugin Check rejects.
+          BAD=$(cd "${STAGE_ROOT}/${REPO_NAME}" && find . \( -name '.*' -not -name '.' \) -o \( -name '*.md' -not -name 'README.md' -not -name 'SECURITY.md' \) | sed 's|^\./||')
+          if [ -n "$BAD" ]; then
+            echo "::error::Files that must not ship are present in the package:"
+            echo "$BAD"
+            exit 1
+          fi
+          (cd "${STAGE_ROOT}" && zip -r "${GITHUB_WORKSPACE}/${ZIP_NAME}" "${REPO_NAME}")
+          echo "ZIP_NAME=${ZIP_NAME}" >> $GITHUB_ENV
+
+      - name: Publish Release to GitHub
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ env.TAG_VER }}
+          name: "Release ${{ env.TAG_VER }}"
+          generate_release_notes: true
+          files: |
+            ${{ env.ZIP_NAME }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

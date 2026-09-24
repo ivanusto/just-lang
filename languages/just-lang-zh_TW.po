@@ -1,0 +1,214 @@
+# Copyright (C) 2026 Ivan Lin
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Just Lang 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/just-lang\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-24T08:53:02+00:00\n"
+"PO-Revision-Date: 2026-09-24 17:00+0800
+"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: just-lang\n"
+
+#. Plugin Name of the plugin
+#: just-lang.php
+#: includes/admin.php:16
+#: includes/admin.php:37
+msgid "Just Lang"
+msgstr "Just Lang"
+
+#. Plugin URI of the plugin
+#: just-lang.php
+msgid "https://github.com/ivanusto/just-lang"
+msgstr ""
+
+#. Description of the plugin
+#: just-lang.php
+msgid "Lightweight multilingual signals for hand-built pages: per-page language and translation group, html lang, hreflang, og:locale, localized site name in titles, a language switcher and cache-friendly language auto-detection. No URL rewriting, no extra tables."
+msgstr "給手工多語頁面用的輕量多語系標記：每頁的語言與翻譯群組、html lang、hreflang、og:locale、各語言的標題站名、語言切換器，以及不怕快取的語言自動偵測。不改寫網址，也不建資料表。"
+
+#. Author of the plugin
+#: just-lang.php
+msgid "Ivan Lin"
+msgstr "Ivan Lin"
+
+#: includes/admin.php:21
+#: blocks/switcher/index.js:26
+msgid "Settings"
+msgstr "設定"
+
+#: includes/admin.php:38
+msgid "Give each page a language and put its translations in the same group. Just Lang then prints html lang, hreflang and og:locale, and can send first-time visitors to the version in their language."
+msgstr "為每頁設定語言，並把彼此的翻譯放進同一個群組。Just Lang 會據此輸出 html lang、hreflang 與 og:locale，也能把初次來訪的訪客送到他們語言的版本。"
+
+#: includes/admin.php:41
+msgid "Languages"
+msgstr "語言"
+
+#: includes/admin.php:44
+msgid "Enabled"
+msgstr "啟用"
+
+#: includes/admin.php:45
+msgid "Default"
+msgstr "預設"
+
+#: includes/admin.php:46
+#: includes/admin.php:148
+#: includes/admin.php:155
+#: includes/admin.php:204
+#: includes/switcher.php:54
+msgid "Language"
+msgstr "語言"
+
+#: includes/admin.php:47
+msgid "Site name in titles"
+msgstr "標題中的站名"
+
+#: includes/admin.php:55
+msgid "Unchanged"
+msgstr "不變更"
+
+#: includes/admin.php:60
+msgid "Pages without a language of their own count as the default language. The site name, when filled in, replaces the one WordPress puts in the title of pages in that language."
+msgstr "沒有設定語言的頁面視為預設語言。填入站名後，該語言頁面標題中的站名會改用這裡的名稱。"
+
+#: includes/admin.php:62
+msgid "Behaviour"
+msgstr "行為"
+
+#: includes/admin.php:65
+msgid "x-default"
+msgstr "x-default"
+
+#: includes/admin.php:68
+msgid "Default language"
+msgstr "預設語言"
+
+#: includes/admin.php:72
+msgid "Do not print x-default"
+msgstr "不輸出 x-default"
+
+#: includes/admin.php:74
+msgid "The version for visitors whose language is not offered. Auto-detection sends them there too. When a group has no page in this language, the default language answers."
+msgstr "提供給語言不在清單中的訪客的版本，自動偵測也會把他們送到這裡。群組中沒有這個語言的頁面時，改由預設語言的頁面回應。"
+
+#: includes/admin.php:78
+msgid "Auto-detection"
+msgstr "自動偵測"
+
+#: includes/admin.php:80
+msgid "Send visitors arriving from other sites to the version in their browser language"
+msgstr "將從其他網站進來的訪客送到其瀏覽器語言的版本"
+
+#: includes/admin.php:81
+msgid "Runs in the browser, so full-page caching and CDNs keep working. Visitors moving within the site are never redirected, and the language they pick is remembered. Crawlers are never redirected. Add ?lang=keep to a link to pin its language."
+msgstr "在瀏覽器端執行，因此整頁快取與 CDN 照常運作。在站內移動的訪客不會被轉向，並會記住他們選擇的語言。爬蟲一律不轉向。在連結加上 ?lang=keep 可固定該連結的語言。"
+
+#: includes/admin.php:85
+msgid "Page excerpts"
+msgstr "頁面摘要"
+
+#: includes/admin.php:87
+msgid "Add an excerpt box to pages"
+msgstr "在頁面加入摘要欄位"
+
+#: includes/admin.php:88
+msgid "Many SEO plugins use the excerpt as the meta description, which gives each language version a description in its own language."
+msgstr "許多 SEO 外掛會把摘要當作 meta description，讓每個語言版本都有自己語言的描述。"
+
+#: includes/admin.php:95
+msgid "Language switcher"
+msgstr "語言切換器"
+
+#: includes/admin.php:96
+msgid "Add the Language Switcher block, or use the shortcode below. Both list the other published pages in the current page's group."
+msgstr "加入「語言切換器」區塊，或使用下方的短代碼。兩者都會列出目前頁面所屬群組中其他已發佈的頁面。"
+
+#. translators: %s: plugin names, such as Polylang
+#: includes/admin.php:137
+#, php-format
+msgid "Just Lang is active alongside %s. Both print hreflang and html lang, so search engines will see conflicting signals. Keep only one of them."
+msgstr "Just Lang 與 %s 同時啟用中。兩者都會輸出 hreflang 與 html lang，搜尋引擎會看到互相衝突的訊號。請只保留其中一個。"
+
+#. translators: %s: language tag of the site default, such as en
+#: includes/admin.php:157
+#, php-format
+msgid "Default (%s)"
+msgstr "預設（%s）"
+
+#: includes/admin.php:164
+msgid "Translation group"
+msgstr "翻譯群組"
+
+#: includes/admin.php:166
+msgid "e.g. about-us"
+msgstr "例如 about-us"
+
+#: includes/admin.php:168
+msgid "Pages sharing the same group are translations of each other. Use lowercase letters, digits, dashes and underscores."
+msgstr "群組相同的頁面互為翻譯。請使用小寫英文、數字、連字號與底線。"
+
+#: includes/switcher.php:106
+msgid "Language switcher: shows here once this page has a published translation in the same group."
+msgstr "語言切換器：這頁在同一群組中有已發佈的翻譯後，會顯示在這裡。"
+
+#: blocks/switcher/index.js:28
+msgid "Layout"
+msgstr "版面"
+
+#: blocks/switcher/index.js:31
+msgid "Inline"
+msgstr "橫排"
+
+#: blocks/switcher/index.js:32
+msgid "List"
+msgstr "清單"
+
+#: blocks/switcher/index.js:37
+msgid "Labels"
+msgstr "標籤"
+
+#: blocks/switcher/index.js:40
+msgid "Language name"
+msgstr "語言名稱"
+
+#: blocks/switcher/index.js:41
+msgid "Language code"
+msgstr "語言代碼"
+
+#: blocks/switcher/index.js:46
+msgid "Show the current language"
+msgstr "顯示目前語言"
+
+#: blocks/switcher/block.json
+msgctxt "block title"
+msgid "Language Switcher"
+msgstr "語言切換器"
+
+#: blocks/switcher/block.json
+msgctxt "block description"
+msgid "Links to the other language versions of this page."
+msgstr "連到這頁其他語言版本的連結。"
+
+#: blocks/switcher/block.json
+msgctxt "block keyword"
+msgid "language"
+msgstr "語言"
+
+#: blocks/switcher/block.json
+msgctxt "block keyword"
+msgid "translation"
+msgstr "翻譯"
+
+#: blocks/switcher/block.json
+msgctxt "block keyword"
+msgid "multilingual"
+msgstr "多語系"

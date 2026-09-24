@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "just-lang/switcher",
+	"title": "Language Switcher",
+	"category": "widgets",
+	"icon": "translation",
+	"description": "Links to the other language versions of this page.",
+	"keywords": [ "language", "translation", "multilingual" ],
+	"textdomain": "just-lang",
+	"usesContext": [ "postId" ],
+	"attributes": {
+		"style": { "type": "string", "enum": [ "list", "inline" ], "default": "inline" },
+		"labels": { "type": "string", "enum": [ "name", "code" ], "default": "name" },
+		"showCurrent": { "type": "boolean", "default": true }
+	},
+	"supports": {
+		"html": false,
+		"align": true,
+		"spacing": { "margin": true, "padding": true },
+		"typography": { "fontSize": true },
+		"color": { "text": true, "background": true, "link": true }
+	},
+	"editorScript": "file:./index.js"
+}

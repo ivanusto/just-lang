@@ -1,0 +1,13 @@
+# Single source of truth for what stays out of the release archive.
+# Consumed by .github/workflows/release.yml (rsync --exclude-from).
+.distignore
+.git
+.gitignore
+.github
+README.zh-TW.md
+tests
+node_modules
+.DS_Store
+.claude
+*.bak
+*.zip
